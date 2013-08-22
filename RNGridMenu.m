@@ -205,7 +205,7 @@ CGPoint RNCentroidOfTouchesInView(NSSet *touches, UIView *view) {
 
         _imageView = [[UIImageView alloc] init];
         _imageView.backgroundColor = [UIColor clearColor];
-        _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _imageView.contentMode = UIViewContentModeCenter;
         [self addSubview:_imageView];
 
         _titleLabel = [[UILabel alloc] init];
@@ -532,7 +532,7 @@ static RNGridMenu *rn_visibleGridMenu;
 
 - (void)layoutAsGrid {
     NSInteger itemCount = self.items.count;
-    NSInteger rowCount = ceilf(sqrtf(itemCount));
+    NSInteger rowCount = (itemCount + 2) / 3;
 
     CGFloat height = self.itemSize.height * rowCount;
     CGFloat width = self.itemSize.width * ceilf(itemCount / (CGFloat)rowCount);
